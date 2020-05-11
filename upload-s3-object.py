@@ -1,5 +1,5 @@
 import boto3
-from botocore.client import Config
+
 s3 = boto3.resource('s3')
 
 data =  open('hello.csv','rb')
