@@ -3,9 +3,9 @@ import boto3
 client = boto3.client('ec2')
 
 #getting all regions 
-regions = client.describe_regions()['Regions']
-for reg in regions:
-    get_reg_name = reg['RegionName']
+all_regions = client.describe_regions()['Regions']
+for region in all_regions:
+    get_reg_name = region['RegionName']
 
     #creating client object for each region
     client = boto3.client('ec2',region_name = get_reg_name)
@@ -20,9 +20,5 @@ for reg in regions:
         print('Instance Id: ',instance_id)
 
         #stop running instances
-        #resource = boto3.resource('ec2',region_name=get_reg_name)
-        #instance = resource.Instance(instance_id)
-
-        #instance.stop()
         client.stop_instances(InstanceIds=[instance_id])
     
