@@ -2,7 +2,7 @@ import boto3
 
 client = boto3.client('ec2')
 
-#getting all regions 
+#getting all regions
 all_regions = client.describe_regions()['Regions']
 for region in all_regions:
     get_reg_name = region['RegionName']
