@@ -1,3 +1,5 @@
+#python program to stop all running instances
+
 import boto3
 
 client = boto3.client('ec2')
